@@ -1,0 +1,54 @@
+name:                Pushka
+version:             0.1.0.0
+synopsis:            Push Notification Server
+description:         Please see README.md
+license:             BSD3
+license-file:        LICENSE
+author:              Tommaso Piazza
+maintainer:          tommaso.piazza@gmail.com
+copyright:           2016 Tommaso Piazza
+category:            Web
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Pushka.Types
+  build-depends:       base >= 4.7 && < 5
+                     , mongoDB >= 2.0
+                     , text >= 1.1
+                     , transformers >= 0.4
+
+
+  default-language:    Haskell2010
+
+executable Pushka-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , Pushka
+                     , Spock >= 0.10
+                     , transformers >= 0.4
+                     , text >= 1.1
+                     , http-conduit >= 1.1
+                     , resourcet >= 1.1
+                     , http-types >= 0.6
+                     , amazonka >= 1.3
+                     , amazonka-sns >= 1.3
+                     , mongoDB >= 2.0
+  default-language:    Haskell2010
+
+test-suite Pushka-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , Pushka
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+-- source-repository head
+--   type:     git
+--   location: https://github.com/githubuser/Pushka
