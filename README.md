@@ -2,7 +2,7 @@
 
 Пушка (Russian: Pushka, cannon) is a Push Notification proxy written in Haskell.
 
-Puska will realy a push payload from an authorized sender to some receiver.
+Puska will relay a push payload from an authorized sender to some receiver.
 Authorized receivers register their device token with Pushka to receive pushes.
 
 ## Enviroment Dependencies
